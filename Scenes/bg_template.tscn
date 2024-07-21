@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://16vyplhdnkwh"]
+
+[ext_resource type="Texture2D" uid="uid://qkuwfmvvkowi" path="res://Textures/WhiteBG.png" id="1_xvbea"]
+
+[node name="BgTemplate" type="TextureRect"]
+modulate = Color(0.0431373, 0.0509804, 0.0588235, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xvbea")
+expand_mode = 1
+stretch_mode = 1

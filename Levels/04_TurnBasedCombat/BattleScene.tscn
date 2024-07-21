@@ -1,0 +1,535 @@
+[gd_scene load_steps=25 format=3 uid="uid://bogcl1orjtdb6"]
+
+[ext_resource type="PackedScene" uid="uid://dpmb7ttxugy7" path="res://Levels/04_TurnBasedCombat/Character.tscn" id="1_ail02"]
+[ext_resource type="Script" path="res://Levels/04_TurnBasedCombat/TurnManager.gd" id="1_ednmm"]
+[ext_resource type="Texture2D" uid="uid://bngnuh5xb6p2w" path="res://Resources/ad_lottery.svg" id="2_80uvd"]
+[ext_resource type="Texture2D" uid="uid://dy65g5tqucr4y" path="res://Resources/ad_download_1.svg" id="3_1vtbq"]
+[ext_resource type="Texture2D" uid="uid://bbt43nry5apno" path="res://Resources/video_ad.svg" id="3_t0qpl"]
+[ext_resource type="Resource" uid="uid://c03ippm48q2r8" path="res://Levels/04_TurnBasedCombat/Combat Actions/Slash.tres" id="3_w3i4b"]
+[ext_resource type="Resource" uid="uid://bxdwcglyurimo" path="res://Levels/04_TurnBasedCombat/Combat Actions/Heal.tres" id="4_et7ci"]
+[ext_resource type="Texture2D" uid="uid://bw7uf3cjdmhsp" path="res://Resources/browser_limbo.svg" id="4_o3hot"]
+[ext_resource type="Resource" uid="uid://c28frpav8nr1o" path="res://Levels/04_TurnBasedCombat/Combat Actions/Stomp.tres" id="5_sr61s"]
+[ext_resource type="Texture2D" uid="uid://buqx3wuylqiuy" path="res://Resources/PlayerSprite.png" id="6_n5p5y"]
+[ext_resource type="Texture2D" uid="uid://byqau5j0hw2rf" path="res://Resources/SpamBot.png" id="7_glf3f"]
+[ext_resource type="Script" path="res://Levels/04_TurnBasedCombat/CombatActionButton.gd" id="8_4txg4"]
+[ext_resource type="Script" path="res://Levels/04_TurnBasedCombat/PlayerUI.gd" id="8_boiy3"]
+[ext_resource type="Theme" uid="uid://cf56sxlm3kfbl" path="res://Themes/combat_button.tres" id="9_dvlt4"]
+[ext_resource type="Texture2D" uid="uid://rhux1oeycm7s" path="res://Resources/ad_virus.svg" id="15_e46l1"]
+[ext_resource type="Texture2D" uid="uid://b2u2aubxfqagk" path="res://Resources/ad_skip.svg" id="16_77aqa"]
+[ext_resource type="FontFile" uid="uid://hjtao544kf0n" path="res://Fonts/Poppins/Poppins-Medium.ttf" id="17_g72uq"]
+[ext_resource type="AudioStream" uid="uid://hpc0xpp6fkdb" path="res://Sound/8bit.mp3" id="19_vkk7s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcco0"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.627451)
+shadow_size = 2
+shadow_offset = Vector2(8, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfg2y"]
+bg_color = Color(0.0492639, 0.49758, 1.0945e-07, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+
+[sub_resource type="Animation" id="Animation_75km3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay UI/ad overlay 1/AdLottery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(557, -73)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlay UI/ad overlay 1/AdDownload1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(444, -97)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Overlay UI/ad overlay 1/VideoAd:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(517, -176)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Overlay UI/ad overlay 1/BrowserLimbo:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(452, 55)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Underlay UI/ad overlay 2/AdVirus:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(317, 44)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Underlay UI/ad overlay 2/AdSkip:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(489, 33)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Overlay UI/ad overlay 1/AdLottery:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Overlay UI/ad overlay 1/AdDownload1:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Overlay UI/ad overlay 1/VideoAd:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Overlay UI/ad overlay 1/BrowserLimbo:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Underlay UI/ad overlay 2/AdVirus:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Underlay UI/ad overlay 2/AdSkip:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SpamBot:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(149, -160)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SpamBot:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_acffb"]
+resource_name = "ads_entry"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay UI/ad overlay 1/AdLottery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4),
+"transitions": PackedFloat32Array(-2, 2, 2),
+"update": 0,
+"values": [Vector2(723, -73), Vector2(435, -73), Vector2(557, -73)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlay UI/ad overlay 1/AdDownload1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4),
+"transitions": PackedFloat32Array(-2, 2, 2),
+"update": 0,
+"values": [Vector2(768, -97), Vector2(345, -97), Vector2(444, -97)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Overlay UI/ad overlay 1/VideoAd:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4),
+"transitions": PackedFloat32Array(-2, 2, 2),
+"update": 0,
+"values": [Vector2(751, -176), Vector2(443, -176), Vector2(517, -176)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Overlay UI/ad overlay 1/BrowserLimbo:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4),
+"transitions": PackedFloat32Array(-2, 2, 2),
+"update": 0,
+"values": [Vector2(918, 55), Vector2(404, 55), Vector2(452, 55)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Underlay UI/ad overlay 2/AdVirus:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4),
+"transitions": PackedFloat32Array(-2, 2, 2),
+"update": 0,
+"values": [Vector2(879, 44), Vector2(266, 44), Vector2(317, 44)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Underlay UI/ad overlay 2/AdSkip:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4),
+"transitions": PackedFloat32Array(-2, 2, 2),
+"update": 0,
+"values": [Vector2(748, 33), Vector2(438, 33), Vector2(489, 33)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Overlay UI/ad overlay 1/AdLottery:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.988235, 0.0901961, 0.0823529, 1), Color(0.988235, 0.992157, 0.956863, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Overlay UI/ad overlay 1/AdDownload1:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.988235, 0.0901961, 0.0823529, 1), Color(0.988235, 0.992157, 0.956863, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Overlay UI/ad overlay 1/VideoAd:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.988235, 0.0901961, 0.0823529, 1), Color(0.988235, 0.992157, 0.956863, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Overlay UI/ad overlay 1/BrowserLimbo:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.988235, 0.0901961, 0.0823529, 1), Color(0.988235, 0.992157, 0.956863, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Underlay UI/ad overlay 2/AdVirus:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.988235, 0.0901961, 0.0823529, 1), Color(0.988235, 0.992157, 0.956863, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Underlay UI/ad overlay 2/AdSkip:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.988235, 0.0901961, 0.0823529, 1), Color(0.988235, 0.992157, 0.956863, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SpamBot:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4),
+"transitions": PackedFloat32Array(-2, 2, 2),
+"update": 0,
+"values": [Vector2(734, -160), Vector2(58, -160), Vector2(149, -160)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SpamBot:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 0,
+"values": [Color(0.988235, 0.992157, 0.956863, 1), Color(0.941176, 0.0313726, 0.0313726, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v3r5c"]
+resource_name = "idle_screens"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f8jit"]
+_data = {
+"RESET": SubResource("Animation_75km3"),
+"ads_entry": SubResource("Animation_acffb"),
+"idle_screens": SubResource("Animation_v3r5c")
+}
+
+[node name="BattleScene" type="Node2D" node_paths=PackedStringArray("player_char", "enemy_char")]
+script = ExtResource("1_ednmm")
+player_char = NodePath("Admin")
+enemy_char = NodePath("SpamBot")
+next_turn_delay = null
+
+[node name="Overlay UI" type="Node2D" parent="."]
+
+[node name="Bg" type="ColorRect" parent="Overlay UI"]
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+size_flags_horizontal = 4
+color = Color(0.192157, 0.2, 0.219608, 1)
+metadata/_edit_group_ = true
+
+[node name="ad overlay 1" type="Node2D" parent="Overlay UI"]
+
+[node name="AdLottery" type="Sprite2D" parent="Overlay UI/ad overlay 1"]
+position = Vector2(557, -73)
+scale = Vector2(0.578571, 0.578571)
+texture = ExtResource("2_80uvd")
+
+[node name="AdDownload1" type="Sprite2D" parent="Overlay UI/ad overlay 1"]
+position = Vector2(444, -97)
+scale = Vector2(0.378505, 0.378505)
+texture = ExtResource("3_1vtbq")
+
+[node name="VideoAd" type="Sprite2D" parent="Overlay UI/ad overlay 1"]
+position = Vector2(517, -176)
+scale = Vector2(0.589449, 0.58945)
+texture = ExtResource("3_t0qpl")
+
+[node name="BrowserLimbo" type="Sprite2D" parent="Overlay UI/ad overlay 1"]
+position = Vector2(452, 55)
+scale = Vector2(0.31511, 0.327949)
+texture = ExtResource("4_o3hot")
+
+[node name="Panel" type="Panel" parent="Overlay UI"]
+offset_left = -574.0
+offset_right = 572.0
+offset_bottom = 324.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mcco0")
+
+[node name="Admin" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("1_ail02")]
+position = Vector2(-299, -124)
+is_player = true
+cur_hp = 64
+max_hp = 64
+combat_actions = [ExtResource("3_w3i4b"), ExtResource("4_et7ci"), ExtResource("5_sr61s")]
+opponent = NodePath("../SpamBot")
+visual = ExtResource("6_n5p5y")
+
+[node name="SpamBot" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("1_ail02")]
+position = Vector2(149, -160)
+cur_hp = 48
+max_hp = 48
+combat_actions = [ExtResource("4_et7ci"), ExtResource("3_w3i4b")]
+opponent = NodePath("../Admin")
+visual = ExtResource("7_glf3f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="PlayerCombatActionsUI" type="HBoxContainer" parent="."]
+offset_left = -480.0
+offset_top = 72.0
+offset_right = 136.0
+offset_bottom = 162.0
+theme_override_constants/separation = 16
+script = ExtResource("8_boiy3")
+buttons = [NodePath("CombatAction"), NodePath("CombatAction2"), NodePath("CombatAction3"), NodePath("CombatAction4")]
+
+[node name="CombatAction" type="Button" parent="PlayerCombatActionsUI"]
+layout_mode = 2
+theme = ExtResource("9_dvlt4")
+text = "Ping
+"
+script = ExtResource("8_4txg4")
+
+[node name="CombatAction2" type="Button" parent="PlayerCombatActionsUI"]
+layout_mode = 2
+theme = ExtResource("9_dvlt4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jfg2y")
+text = "DDoS"
+script = ExtResource("8_4txg4")
+
+[node name="CombatAction3" type="Button" parent="PlayerCombatActionsUI"]
+layout_mode = 2
+theme = ExtResource("9_dvlt4")
+text = "Throttle"
+script = ExtResource("8_4txg4")
+
+[node name="CombatAction4" type="Button" parent="PlayerCombatActionsUI"]
+layout_mode = 2
+theme = ExtResource("9_dvlt4")
+text = "Firewall"
+script = ExtResource("8_4txg4")
+
+[node name="Underlay UI" type="Node2D" parent="."]
+
+[node name="ad overlay 2" type="Node" parent="Underlay UI"]
+
+[node name="AdVirus" type="Sprite2D" parent="Underlay UI/ad overlay 2"]
+position = Vector2(317, 44)
+scale = Vector2(0.457996, 0.457996)
+texture = ExtResource("15_e46l1")
+
+[node name="AdSkip" type="Sprite2D" parent="Underlay UI/ad overlay 2"]
+position = Vector2(489, 33)
+scale = Vector2(0.764901, 0.764901)
+texture = ExtResource("16_77aqa")
+
+[node name="PlayerName" type="Label" parent="Underlay UI"]
+offset_left = -478.0
+offset_top = 35.0
+offset_right = -354.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("17_g72uq")
+text = "Network Admin
+"
+
+[node name="Commentary" type="Label" parent="Underlay UI"]
+offset_left = -478.0
+offset_top = 193.0
+offset_right = -285.0
+offset_bottom = 216.0
+text = "This will be commentary!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f8jit")
+}
+autoplay = "ads_entry"
+
+[node name="BgMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_vkk7s")
+volume_db = -25.28
+autoplay = true
+
+[connection signal="pressed" from="PlayerCombatActionsUI/CombatAction" to="PlayerCombatActionsUI/CombatAction" method="_on_pressed"]
+[connection signal="pressed" from="PlayerCombatActionsUI/CombatAction2" to="PlayerCombatActionsUI/CombatAction2" method="_on_pressed"]
+[connection signal="pressed" from="PlayerCombatActionsUI/CombatAction3" to="PlayerCombatActionsUI/CombatAction3" method="_on_pressed"]
+[connection signal="pressed" from="PlayerCombatActionsUI/CombatAction4" to="PlayerCombatActionsUI/CombatAction4" method="_on_pressed"]

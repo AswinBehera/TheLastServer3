@@ -1,0 +1,137 @@
+var profiles = [
+    {
+        "display_name": "AliceWonder",
+        "user_name": "alwd#1234",
+        "user_data": "I love reading books and exploring new places.",
+        "online_date_range": "01/01/2021 - Present",
+        "color": "lightblue",
+        "meta_data": "Joined multiple book-related groups",
+        "email": "alicewonder@gmail.com"
+    },
+    {
+        "display_name": "BobBuilder",
+        "user_name": "bbbl#5678",
+        "user_data": "DIY enthusiast. Building my dream house.",
+        "online_date_range": "03/15/2020 - Present",
+        "color": "orange",
+        "meta_data": "Regularly shares DIY tips",
+        "email": "bob.builder@yahoo.com"
+    },
+    {
+        "display_name": "CharlieCode",
+        "user_name": "chcd#9101",
+        "user_data": "Software developer. Coding is my passion.",
+        "online_date_range": "02/20/2022 - Present",
+        "color": "green",
+        "meta_data": "Frequently posts about programming",
+        "email": "charlie.code@outlook.com"
+    },
+    {
+        "display_name": "DaisyDreamer",
+        "user_name": "dadr#2345",
+        "user_data": "Daydreaming about the stars and the universe.",
+        "online_date_range": "11/05/2021 - Present",
+        "color": "purple",
+        "meta_data": "Active in astronomy discussions",
+        "email": "daisy.dreamer@gmail.com"
+    },
+    {
+        "display_name": "EveExplorer",
+        "user_name": "evex#6789",
+        "user_data": "Adventurer. Always looking for the next big journey.",
+        "online_date_range": "08/12/2020 - Present",
+        "color": "red",
+        "meta_data": "Shares travel photos",
+        "email": "eve.explorer@gmail.com"
+    },
+    {
+        "display_name": "ad_bot1",
+        "user_name": "adbt#1234",
+        "user_data": "Check out the latest deals on electronics!",
+        "online_date_range": "01/01/2023 - Present",
+        "color": "darkgray",
+        "meta_data": "Spams links to external sites",
+        "email": "adbot1@suspiciousmail.com"
+    },
+    {
+        "display_name": "ad_bot2",
+        "user_name": "adbt#5678",
+        "user_data": "Best discounts on clothing. Click here!",
+        "online_date_range": "01/05/2023 - Present",
+        "color": "darkgray",
+        "meta_data": "Frequently changes display name",
+        "email": "adbot2@fakeemail.com"
+    },
+    {
+        "display_name": "info_bot",
+        "user_name": "inbt#9101",
+        "user_data": "Did you know? The sky is blue because of Rayleigh scattering.",
+        "online_date_range": "01/10/2023 - Present",
+        "color": "darkgray",
+        "meta_data": "Sends random trivia facts",
+        "email": "infobot@randomfactsmail.com"
+    },
+    {
+        "display_name": "spam_bot1",
+        "user_name": "spbt#2345",
+        "user_data": "Join our giveaway! Win a free iPhone!",
+        "online_date_range": "02/01/2023 - Present",
+        "color": "darkgray",
+        "meta_data": "Participates in multiple servers simultaneously",
+        "email": "spambot1@fakemail.com"
+    },
+    {
+        "display_name": "spam_bot2",
+        "user_name": "spbt#6789",
+        "user_data": "Free money! Click here to claim your prize!",
+        "online_date_range": "02/15/2023 - Present",
+        "color": "darkgray",
+        "meta_data": "Sends suspicious links",
+        "email": "spambot2@maliciousmail.com"
+    },
+    {
+        "display_name": "auto_response",
+        "user_name": "auro#3456",
+        "user_data": "Hello! How can I assist you today?",
+        "online_date_range": "01/01/2021 - Present",
+        "color": "darkgray",
+        "meta_data": "Replies instantly and consistently",
+        "email": "autoresponse@botmail.com"
+    },
+    {
+        "display_name": "news_bot",
+        "user_name": "newb#7890",
+        "user_data": "Breaking news: Major event happening now!",
+        "online_date_range": "03/01/2023 - Present",
+        "color": "darkgray",
+        "meta_data": "Posts news updates every minute",
+        "email": "newsbot@newsmail.com"
+    },
+    {
+        "display_name": "ad_bot3",
+        "user_name": "adbt#1122",
+        "user_data": "Unbelievable prices on gadgets. Don’t miss out!",
+        "online_date_range": "03/05/2023 - Present",
+        "color": "darkgray",
+        "meta_data": "Joins and leaves servers frequently",
+        "email": "adbot3@promomail.com"
+    },
+    {
+        "display_name": "spam_bot3",
+        "user_name": "spbt#3344",
+        "user_data": "Get rich quick! Investment opportunities inside!",
+        "online_date_range": "03/10/2023 - Present",
+        "color": "darkgray",
+        "meta_data": "Shares suspicious investment links",
+        "email": "spambot3@scammail.com"
+    },
+    {
+        "display_name": "info_bot2",
+        "user_name": "inbt#5566",
+        "user_data": "Fun fact: Honey never spoils.",
+        "online_date_range": "01/01/2023 - Present",
+        "color": "darkgray",
+        "meta_data": "Spams fun facts every few minutes",
+        "email": "infobot2@triviamail.com"
+    }
+]

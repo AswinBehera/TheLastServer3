@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://c18ny0d08soku"]
+
+[ext_resource type="Script" path="res://Scenes/GreetingCard.gd" id="1_tur1n"]
+[ext_resource type="Texture2D" uid="uid://11bhiv5syt31" path="res://Images/DP.png" id="2_lybuk"]
+[ext_resource type="Theme" uid="uid://bcd4akm6gjqii" path="res://Themes/generalButton.tres" id="3_dp67y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rh2uq"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.0745098, 0.0823529, 0.0980392, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Greeting" type="Panel"]
+offset_left = 347.0
+offset_top = 128.0
+offset_right = 347.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tur1n")
+
+[node name="bg" type="Panel" parent="Panel"]
+clip_children = 2
+custom_minimum_size = Vector2(720, 420)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_right = 360.0
+offset_bottom = 360.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rh2uq")
+
+[node name="DP" type="TextureRect" parent="Panel/bg"]
+modulate = Color(1, 0.866667, 0.396078, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -94.0
+offset_right = 50.0
+offset_bottom = -22.0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_lybuk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = 4.0
+offset_right = 315.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 340.0
+offset_right = 356.0
+offset_bottom = 395.0
+
+[node name="Prev" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+theme = ExtResource("3_dp67y")
+text = "Previous"
+
+[node name="Next" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+theme = ExtResource("3_dp67y")
+text = "Next"

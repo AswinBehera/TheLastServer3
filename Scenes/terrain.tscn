@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://7h0klk321uda"]
+
+[ext_resource type="Texture2D" uid="uid://cq4fn3bmn41vo" path="res://Images/grid.png" id="1_ro5oi"]
+
+[sub_resource type="Animation" id="Animation_k0qjb"]
+resource_name = "Background"
+length = 8.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 0.574349),
+"update": 0,
+"values": [Vector2(0, -120), Vector2(0, -30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3xn7"]
+_data = {
+"Background": SubResource("Animation_k0qjb")
+}
+
+[node name="Terrain" type="TextureRect"]
+modulate = Color(0.384314, 0.435294, 0.498039, 0.231373)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.00396732
+texture = ExtResource("1_ro5oi")
+expand_mode = 5
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f3xn7")
+}
+autoplay = "Background"

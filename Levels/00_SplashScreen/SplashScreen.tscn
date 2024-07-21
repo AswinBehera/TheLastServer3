@@ -1,0 +1,149 @@
+[gd_scene load_steps=10 format=3 uid="uid://x7w0b1l55vhc"]
+
+[ext_resource type="Script" path="res://Levels/00_SplashScreen/Scripts/SplashScreenManager.gd" id="1_tbqeh"]
+[ext_resource type="Texture2D" uid="uid://qkuwfmvvkowi" path="res://Textures/WhiteBG.png" id="2_i40px"]
+[ext_resource type="PackedScene" uid="uid://bew6pidcrlta5" path="res://Levels/01_MainMenu/MainMenu.tscn" id="2_n5i78"]
+[ext_resource type="Theme" uid="uid://c4nfitofhxl1s" path="res://Themes/MainTheme.tres" id="3_hqywy"]
+[ext_resource type="PackedScene" uid="uid://16vyplhdnkwh" path="res://Scenes/bg_template.tscn" id="4_cc0kn"]
+[ext_resource type="FontFile" uid="uid://bv31galpytwnq" path="res://Fonts/Poppins/Poppins-Regular.ttf" id="4_jpn6f"]
+
+[sub_resource type="Animation" id="Animation_p45xi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.192157, 0.2, 0.219608, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_h2dsp"]
+resource_name = "SplashScreenAnimation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.192157, 0.2, 0.219608, 1), Color(0.192157, 0.2, 0.219608, 0), Color(0.192157, 0.2, 0.219608, 0), Color(0.192157, 0.2, 0.219608, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"nextLevel"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lr0dw"]
+_data = {
+"RESET": SubResource("Animation_p45xi"),
+"SplashScreenAnimation": SubResource("Animation_h2dsp")
+}
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tbqeh")
+next_level = ExtResource("2_n5i78")
+
+[node name="Bg" type="TextureRect" parent="."]
+modulate = Color(0.0745098, 0.0823529, 0.0980392, 1)
+self_modulate = Color(0.0392157, 0.0470588, 0.0627451, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_i40px")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="BgTemplate" parent="." instance=ExtResource("4_cc0kn")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+rotation = -0.00145916
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lr0dw")
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -25.0
+offset_right = 44.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hqywy")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "a game by"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hqywy")
+theme_override_colors/font_color = Color(1, 0.866667, 0.396078, 1)
+theme_override_fonts/font = ExtResource("4_jpn6f")
+theme_override_font_sizes/font_size = 48
+text = "Team Funcs"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hqywy")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "Aswin Behera & Debadatta Hembram"
+horizontal_alignment = 1
+
+[node name="fade" type="TextureRect" parent="."]
+modulate = Color(0.192157, 0.2, 0.219608, 1)
+self_modulate = Color(0.211765, 0.239216, 0.290196, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_i40px")
+expand_mode = 1
+stretch_mode = 1

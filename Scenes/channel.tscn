@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bif3woabgbbhj"]
+
+[ext_resource type="Theme" uid="uid://6yrb2j648jk4" path="res://Themes/defaultChannel.tres" id="1_is1op"]
+[ext_resource type="Script" path="res://Levels/03_GameServer/Scripts/Channel.gd" id="2_0on73"]
+[ext_resource type="Theme" uid="uid://drn3giqg6k08u" path="res://Themes/activeChannel.tres" id="3_81nr4"]
+
+[node name="#intro" type="Button"]
+size_flags_vertical = 4
+theme = ExtResource("1_is1op")
+text = "#intro"
+alignment = 0
+script = ExtResource("2_0on73")
+defaultTheme = ExtResource("1_is1op")
+activeTheme = ExtResource("3_81nr4")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

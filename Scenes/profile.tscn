@@ -1,0 +1,173 @@
+[gd_scene load_steps=9 format=3 uid="uid://pu3d7fpurdtv"]
+
+[ext_resource type="Script" path="res://Levels/03_GameServer/Scripts/UserProfile.gd" id="1_v4fas"]
+[ext_resource type="Texture2D" uid="uid://11bhiv5syt31" path="res://Images/DP.png" id="2_l3m7c"]
+[ext_resource type="FontFile" uid="uid://pgepska5w257" path="res://Fonts/Poppins/Poppins-SemiBold.ttf" id="3_m6awg"]
+[ext_resource type="FontFile" uid="uid://bv31galpytwnq" path="res://Fonts/Poppins/Poppins-Regular.ttf" id="4_qndva"]
+[ext_resource type="FontFile" uid="uid://cm7752hd0k5n3" path="res://Fonts/Poppins/Poppins-Bold.ttf" id="5_bewvw"]
+[ext_resource type="FontFile" uid="uid://bcvmul00cr68p" path="res://Fonts/Poppins/Poppins-Light.ttf" id="6_xww7w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rh2uq"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.0745098, 0.0823529, 0.0980392, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuxnh"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+
+[node name="Profile" type="Panel"]
+offset_left = 733.0
+offset_top = 47.0
+offset_right = 733.0
+offset_bottom = 47.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_v4fas")
+
+[node name="bg" type="Panel" parent="."]
+custom_minimum_size = Vector2(512, 96)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_right = 256.0
+offset_bottom = 608.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rh2uq")
+
+[node name="banner" type="Panel" parent="."]
+custom_minimum_size = Vector2(512, 96)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_top = 2.0
+offset_right = 256.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tuxnh")
+
+[node name="DP" type="TextureRect" parent="."]
+modulate = Color(1, 0.866667, 0.396078, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -226.0
+offset_top = 72.0
+offset_right = -154.0
+offset_bottom = 144.0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_l3m7c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -226.0
+offset_top = 190.0
+offset_right = 174.0
+offset_bottom = 494.0
+
+[node name="displayName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_m6awg")
+theme_override_font_sizes/font_size = 24
+text = "Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="userName" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_qndva")
+theme_override_font_sizes/font_size = 16
+text = "@username"
+
+[node name="separator" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme_override_fonts/font = ExtResource("4_qndva")
+theme_override_font_sizes/font_size = 16
+text = "|"
+horizontal_alignment = 1
+
+[node name="email" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_fonts/font = ExtResource("4_qndva")
+theme_override_font_sizes/font_size = 16
+text = "test@gmail.com"
+
+[node name="separator2" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme_override_fonts/font = ExtResource("4_qndva")
+theme_override_font_sizes/font_size = 16
+text = "|"
+horizontal_alignment = 1
+
+[node name="ip" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_fonts/font = ExtResource("4_qndva")
+theme_override_font_sizes/font_size = 16
+text = "192.168.1.1
+"
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="aboutHeader" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_bewvw")
+theme_override_font_sizes/font_size = 16
+text = "About me
+"
+
+[node name="userinfo" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_xww7w")
+theme_override_font_sizes/font_size = 16
+text = "About me sadasdasdkaskljdlkasjkldjaksldjalskjdlaskjdlaskjdlkjasldkjasldjlaskjdlkasjldjaslkdjaslkjaadkal
+"
+autowrap_mode = 1
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="metaheader" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_bewvw")
+theme_override_font_sizes/font_size = 16
+text = "User metadata"
+
+[node name="metadata" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_xww7w")
+theme_override_font_sizes/font_size = 16
+text = "About medasdasssssssssssssssssssssssssssssssss"
+autowrap_mode = 1

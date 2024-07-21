@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbnlopshd2g3b"]
+
+[ext_resource type="PackedScene" uid="uid://16vyplhdnkwh" path="res://Scenes/bg_template.tscn" id="1_ewbqu"]
+[ext_resource type="PackedScene" uid="uid://7h0klk321uda" path="res://Scenes/terrain.tscn" id="2_4hcqb"]
+[ext_resource type="PackedScene" uid="uid://c18ny0d08soku" path="res://Scenes/Greeting.tscn" id="3_jpvrq"]
+[ext_resource type="Script" path="res://Scenes/StoryManager.gd" id="4_02ojk"]
+[ext_resource type="PackedScene" uid="uid://dwmmxdv7buswb" path="res://Levels/03_GameServer/GameServer.tscn" id="5_41shk"]
+
+[sub_resource type="Animation" id="Animation_r71pb"]
+resource_name = "GreetingAnimation"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(634, 142), Vector2(592, 169), Vector2(634, 142), Vector2(673, 135), Vector2(634, 142)]
+}
+
+[sub_resource type="Animation" id="Animation_tojgy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(634, 142)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b0vwd"]
+_data = {
+"GreetingAnimation": SubResource("Animation_r71pb"),
+"RESET": SubResource("Animation_tojgy")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BgTemplate" parent="CanvasLayer" instance=ExtResource("1_ewbqu")]
+
+[node name="Terrain" parent="CanvasLayer" instance=ExtResource("2_4hcqb")]
+
+[node name="Greeting" parent="CanvasLayer" instance=ExtResource("3_jpvrq")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 634.0
+offset_top = 142.0
+offset_right = 634.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("4_02ojk")
+next_level = ExtResource("5_41shk")
+
+[node name="GreetAnims" type="AnimationPlayer" parent="CanvasLayer/Greeting"]
+libraries = {
+"": SubResource("AnimationLibrary_b0vwd")
+}
+autoplay = "GreetingAnimation"

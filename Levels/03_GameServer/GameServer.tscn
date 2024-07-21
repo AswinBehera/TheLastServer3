@@ -1,0 +1,411 @@
+[gd_scene load_steps=31 format=3 uid="uid://dwmmxdv7buswb"]
+
+[ext_resource type="Script" path="res://Levels/03_GameServer/Scripts/GameBg.gd" id="1_cvnbh"]
+[ext_resource type="FontFile" uid="uid://hjtao544kf0n" path="res://Fonts/Poppins/Poppins-Medium.ttf" id="1_n22hb"]
+[ext_resource type="Script" path="res://Levels/03_GameServer/Scripts/GameServerManager.gd" id="1_ntaq0"]
+[ext_resource type="PackedScene" uid="uid://dsadqsff76t3" path="res://Scenes/ExitButton.tscn" id="2_sgn64"]
+[ext_resource type="PackedScene" uid="uid://bif3woabgbbhj" path="res://Scenes/channel.tscn" id="3_xay0k"]
+[ext_resource type="Script" path="res://Levels/03_GameServer/Scripts/ProfileManager.gd" id="6_gndok"]
+[ext_resource type="PackedScene" uid="uid://pu3d7fpurdtv" path="res://Scenes/profile.tscn" id="8_qqw44"]
+[ext_resource type="FontFile" uid="uid://pgepska5w257" path="res://Fonts/Poppins/Poppins-SemiBold.ttf" id="8_t0ivl"]
+[ext_resource type="Theme" uid="uid://cob0mktrjto5" path="res://Themes/actionButton.tres" id="9_0l840"]
+[ext_resource type="Script" path="res://Levels/03_GameServer/Scripts/ApprovalControlPanel.gd" id="9_qsstc"]
+[ext_resource type="FontFile" uid="uid://bv31galpytwnq" path="res://Fonts/Poppins/Poppins-Regular.ttf" id="9_yd2wx"]
+[ext_resource type="Theme" uid="uid://bhw1kx0sl2b2e" path="res://Themes/dangerButton.tres" id="10_ffbmj"]
+[ext_resource type="Script" path="res://Levels/03_GameServer/Scripts/RulesManager.gd" id="11_ossmu"]
+[ext_resource type="Script" path="res://Levels/03_GameServer/Scripts/ProfileDB.gd" id="12_m6uqw"]
+[ext_resource type="Theme" uid="uid://cjqlro5andobv" path="res://Themes/PrimaryactionButton.tres" id="12_pk8hy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kert7"]
+bg_color = Color(0.0431373, 0.0509804, 0.0588235, 1)
+
+[sub_resource type="Animation" id="Animation_lchtm"]
+resource_name = "Appear"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_75tk4"]
+resource_name = "Exit"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_04hbi"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hdb5e"]
+_data = {
+"Appear": SubResource("Animation_lchtm"),
+"Exit": SubResource("Animation_75tk4"),
+"RESET": SubResource("Animation_04hbi")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpa6p"]
+bg_color = Color(0.0745098, 0.0823529, 0.0980392, 1)
+
+[sub_resource type="Animation" id="Animation_rwoy7"]
+resource_name = "PanelEntry"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-320, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rules:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_1jpfh"]
+resource_name = "PanelExit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-320, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rules:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_wutko"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rules:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_12k0q"]
+_data = {
+"PanelEntry": SubResource("Animation_rwoy7"),
+"PanelExit": SubResource("Animation_1jpfh"),
+"RESET": SubResource("Animation_wutko")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nb45h"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.470588, 0.52549, 0.603922, 1)
+
+[sub_resource type="Animation" id="Animation_fibrw"]
+resource_name = "Entry"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Profile:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(946, -706), Vector2(946, 65)]
+}
+
+[sub_resource type="Animation" id="Animation_6m7jx"]
+resource_name = "Exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Profile:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(946, 65), Vector2(946, -700)]
+}
+
+[sub_resource type="Animation" id="Animation_psr2u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Profile:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(946, -706)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7pgok"]
+_data = {
+"Entry": SubResource("Animation_fibrw"),
+"Exit": SubResource("Animation_6m7jx"),
+"RESET": SubResource("Animation_psr2u")
+}
+
+[node name="GameServer" type="Node2D"]
+script = ExtResource("1_ntaq0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="bg" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kert7")
+script = ExtResource("1_cvnbh")
+
+[node name="BGAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/bg"]
+libraries = {
+"": SubResource("AnimationLibrary_hdb5e")
+}
+
+[node name="SidePanel" type="Panel" parent="CanvasLayer"]
+offset_left = -320.0
+offset_right = -80.0
+offset_bottom = 720.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_bpa6p")
+
+[node name="SidePanelAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/SidePanel"]
+libraries = {
+"": SubResource("AnimationLibrary_12k0q")
+}
+autoplay = "PanelEntry"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SidePanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/SidePanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/SidePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.866667, 0.396078, 1)
+theme_override_fonts/font = ExtResource("1_n22hb")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_nb45h")
+text = "the
+LastServer"
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/SidePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="#intro" parent="CanvasLayer/SidePanel/MarginContainer/VBoxContainer" instance=ExtResource("3_xay0k")]
+layout_mode = 2
+isDefault = true
+
+[node name="#explore" parent="CanvasLayer/SidePanel/MarginContainer/VBoxContainer" instance=ExtResource("3_xay0k")]
+layout_mode = 2
+text = "#explore"
+
+[node name="#pending_request" parent="CanvasLayer/SidePanel/MarginContainer/VBoxContainer" instance=ExtResource("3_xay0k")]
+layout_mode = 2
+text = "#pending_requests"
+
+[node name="Exit" parent="CanvasLayer/SidePanel" instance=ExtResource("2_sgn64")]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -64.0
+offset_right = 96.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Rules" type="Control" parent="CanvasLayer/SidePanel"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 271.0
+offset_top = 91.0
+offset_right = 311.0
+offset_bottom = 131.0
+script = ExtResource("11_ossmu")
+
+[node name="Begin" type="Button" parent="CanvasLayer/SidePanel/Rules"]
+layout_mode = 2
+offset_left = -1.0
+offset_top = 458.0
+offset_right = 152.0
+offset_bottom = 513.0
+size_flags_horizontal = 3
+theme = ExtResource("12_pk8hy")
+text = "Begin"
+
+[node name="Label" type="Label" parent="CanvasLayer/SidePanel/Rules"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -10.0
+offset_right = 87.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("8_t0ivl")
+theme_override_font_sizes/font_size = 32
+text = "Rules"
+
+[node name="Label2" type="Label" parent="CanvasLayer/SidePanel/Rules"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 75.0
+offset_right = 310.0
+offset_bottom = 436.0
+theme_override_fonts/font = ExtResource("9_yd2wx")
+theme_override_font_sizes/font_size = 16
+text = "Watch for Spam: Frequent promotional 
+or scammy posts.
+
+Check Emails: Valid emails are Gmail, 
+Yahoo, Outlook, Rediff.
+
+Monitor Behavior: Bots often post 
+consistently and repeatedly.
+
+Inspect IPs: Valid IPs are 192.168.x.x; 
+others may be bots.
+
+Look for Patterns: Bots have uniform, 
+repetitive interactions."
+
+[node name="ProfileManager" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("6_gndok")
+
+[node name="ProfileDB" type="Control" parent="CanvasLayer/ProfileManager"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_m6uqw")
+
+[node name="Profile" parent="CanvasLayer/ProfileManager" instance=ExtResource("8_qqw44")]
+layout_mode = 0
+offset_left = 946.0
+offset_top = -706.0
+offset_right = 946.0
+offset_bottom = -706.0
+
+[node name="ApprovalControlPanel" type="HBoxContainer" parent="CanvasLayer/ProfileManager/Profile"]
+layout_mode = 0
+offset_left = -241.0
+offset_top = 534.0
+offset_right = 239.0
+offset_bottom = 589.0
+alignment = 1
+script = ExtResource("9_qsstc")
+
+[node name="Approve" type="Button" parent="CanvasLayer/ProfileManager/Profile/ApprovalControlPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("9_0l840")
+text = "Approve"
+
+[node name="Control" type="Control" parent="CanvasLayer/ProfileManager/Profile/ApprovalControlPanel"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Reject" type="Button" parent="CanvasLayer/ProfileManager/Profile/ApprovalControlPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("10_ffbmj")
+text = "Reject"
+
+[node name="ProfileManager anim" type="AnimationPlayer" parent="CanvasLayer/ProfileManager/Profile"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_7pgok")
+}
+
+[connection signal="pressed" from="CanvasLayer/ProfileManager/Profile/ApprovalControlPanel/Approve" to="CanvasLayer/ProfileManager/Profile/ApprovalControlPanel" method="_on_approve_pressed"]
+[connection signal="pressed" from="CanvasLayer/ProfileManager/Profile/ApprovalControlPanel/Reject" to="CanvasLayer/ProfileManager/Profile/ApprovalControlPanel" method="_on_reject_pressed"]
