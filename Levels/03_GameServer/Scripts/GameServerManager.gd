@@ -4,6 +4,7 @@ extends Node2D
 @onready var bg_animation_player = $CanvasLayer/bg/BGAnimationPlayer
 
 @export var ui_remove:bool  = false
+@export var next_level : PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_process_input(true)
@@ -12,6 +13,9 @@ func _ready():
 func _on_channel_changed(channel):
 	if channel == "#explore":
 		remove_ui()
+	elif channel == "#pending_requests":
+		print("change level")
+		LevelManager.change_level.emit("res://Levels/01_MainMenu/MainMenu.tscn")
 	else:
 		restore_ui()
 		

@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://bogcl1orjtdb6"]
+[gd_scene load_steps=26 format=3 uid="uid://bogcl1orjtdb6"]
 
 [ext_resource type="PackedScene" uid="uid://dpmb7ttxugy7" path="res://Levels/04_TurnBasedCombat/Character.tscn" id="1_ail02"]
 [ext_resource type="Script" path="res://Levels/04_TurnBasedCombat/TurnManager.gd" id="1_ednmm"]
+[ext_resource type="PackedScene" uid="uid://dwmmxdv7buswb" path="res://Levels/03_GameServer/GameServer.tscn" id="2_2ig4h"]
 [ext_resource type="Texture2D" uid="uid://bngnuh5xb6p2w" path="res://Resources/ad_lottery.svg" id="2_80uvd"]
 [ext_resource type="Texture2D" uid="uid://dy65g5tqucr4y" path="res://Resources/ad_download_1.svg" id="3_1vtbq"]
 [ext_resource type="Texture2D" uid="uid://bbt43nry5apno" path="res://Resources/video_ad.svg" id="3_t0qpl"]
@@ -393,6 +394,7 @@ script = ExtResource("1_ednmm")
 player_char = NodePath("Admin")
 enemy_char = NodePath("SpamBot")
 next_turn_delay = null
+next_level = ExtResource("2_2ig4h")
 
 [node name="Overlay UI" type="Node2D" parent="."]
 

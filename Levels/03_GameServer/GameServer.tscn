@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://dwmmxdv7buswb"]
+[gd_scene load_steps=32 format=3 uid="uid://dwmmxdv7buswb"]
 
 [ext_resource type="Script" path="res://Levels/03_GameServer/Scripts/GameBg.gd" id="1_cvnbh"]
 [ext_resource type="FontFile" uid="uid://hjtao544kf0n" path="res://Fonts/Poppins/Poppins-Medium.ttf" id="1_n22hb"]
 [ext_resource type="Script" path="res://Levels/03_GameServer/Scripts/GameServerManager.gd" id="1_ntaq0"]
+[ext_resource type="PackedScene" uid="uid://bew6pidcrlta5" path="res://Levels/01_MainMenu/MainMenu.tscn" id="2_rdcre"]
 [ext_resource type="PackedScene" uid="uid://dsadqsff76t3" path="res://Scenes/ExitButton.tscn" id="2_sgn64"]
 [ext_resource type="PackedScene" uid="uid://bif3woabgbbhj" path="res://Scenes/channel.tscn" id="3_xay0k"]
 [ext_resource type="Script" path="res://Levels/03_GameServer/Scripts/ProfileManager.gd" id="6_gndok"]
@@ -214,6 +215,7 @@ _data = {
 
 [node name="GameServer" type="Node2D"]
 script = ExtResource("1_ntaq0")
+next_level = ExtResource("2_rdcre")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
