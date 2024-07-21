@@ -2,15 +2,22 @@ extends Panel
 
 @onready var greet_anims = $GreetAnims
 @export var next_level:PackedScene
+@onready var hit_sound = $HitSound
+@onready var laugh_sound = $LaughSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Events.next_story.connect(_on_next_story_req)
-	Events.story_update.emit(stories[0]) 
+	Events.story_update.emit(stories[0])
+	hit_sound.play() 
 
 func _on_next_story_req(id):
 	print(id)
 	if id < stories.size():
+		if id == 1:
+			hit_sound.play()
+		else:
+			laugh_sound.play()
 		Events.story_update.emit(stories[id])
 		greet_anims.play("GreetingAnimation")
 	else:
@@ -25,10 +32,8 @@ func _on_next_story_req(id):
 		#greet_anims.play("GreetingAnimation")
 		
 var stories = [
-		{"id": 1, "story": "[b]Once upon a time,[/b] there was a [i]small village[/i] nestled in the [size=24][color=green]mountains[/color][/size]."},
-		{"id": 2, "story": "In this village, lived a [color=blue][size=22]young girl[/size][/color] named [u]Ella[/u], who [b][color=orange]dreamed[/color][/b] of [size=20][i]adventure[/i][/size]."},
-		{"id": 3, "story": "One day, she discovered a [size=20][color=purple]mysterious map[/color][/size] hidden in her attic."},
-		{"id": 4, "story": "The map led to a [b][color=green][size=24]hidden treasure[/size][/color][/b] deep in the forest."},
-		{"id": 5, "story": "With a [size=22][i]brave heart[/i][/size] and [u][size=20]determination[/size][/u], Ella set off on her [b][color=red][size=26]journey[/size][/color][/b]."}
+		{"id": 1, "story": "🎉 Oh, blimey! [color=red]A human[/color]! Welcome, [color=yellow]Admin[/color]! Yes, that's you! You're our first human in the [color=Yellow]Accord Server[/color]! Don't worry, we promise not to ask you to calculate pi. 🧑‍💻"},
+		{"id": 2, "story": "Your mission: [b]Start from nothing [/b]and [color=yellow]find more humans[/color] to join our '[i]human community[/i]'. We need your [u]mysterious[/u] human charm and your ability to eat pizza. 🤖🍕"},
+		{"id": 3, "story": "Good luck! The fate of [color=yellow]human-ity[/color] rests on you. No pressure... but seriously, [b]no pressure[/b]! 😅"},
 	]
  

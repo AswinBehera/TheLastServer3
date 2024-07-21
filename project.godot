@@ -22,6 +22,7 @@ LevelManager="*res://Scripts/LevelManager.gd"
 Events="*res://Scripts/Events.gd"
 Global="*res://Scripts/Global.gd"
 CombatEvents="*res://Scripts/CombatEvents.gd"
+GlobalMusic="*res://Scenes/global_music.tscn"
 
 [display]
 
