@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://bogcl1orjtdb6"]
+[gd_scene load_steps=26 format=3 uid="uid://bogcl1orjtdb6"]
 
 [ext_resource type="PackedScene" uid="uid://dpmb7ttxugy7" path="res://Levels/04_TurnBasedCombat/Character.tscn" id="1_ail02"]
 [ext_resource type="Script" path="res://Levels/04_TurnBasedCombat/TurnManager.gd" id="1_ednmm"]
 [ext_resource type="Texture2D" uid="uid://bngnuh5xb6p2w" path="res://Resources/ad_lottery.svg" id="2_80uvd"]
+[ext_resource type="PackedScene" uid="uid://dwmmxdv7buswb" path="res://Levels/03_GameServer/GameServer.tscn" id="2_jlonc"]
 [ext_resource type="Texture2D" uid="uid://dy65g5tqucr4y" path="res://Resources/ad_download_1.svg" id="3_1vtbq"]
 [ext_resource type="Texture2D" uid="uid://bbt43nry5apno" path="res://Resources/video_ad.svg" id="3_t0qpl"]
 [ext_resource type="Resource" uid="uid://c03ippm48q2r8" path="res://Levels/04_TurnBasedCombat/Combat Actions/Slash.tres" id="3_w3i4b"]
@@ -377,9 +378,96 @@ tracks/13/keys = {
 "update": 0,
 "values": [Color(0.988235, 0.992157, 0.956863, 1), Color(0.941176, 0.0313726, 0.0313726, 1), Color(1, 1, 1, 1)]
 }
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AnimationPlayer")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["idle_screens"],
+"method": &"queue"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_v3r5c"]
 resource_name = "idle_screens"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay UI/ad overlay 1/AdLottery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(557, -73), Vector2(599, -74)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlay UI/ad overlay 1/AdDownload1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(444, -97), Vector2(519, -103)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Underlay UI/ad overlay 2/AdVirus:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(317, 44), Vector2(422, 33)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Underlay UI/ad overlay 2/AdSkip:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(489, 33), Vector2(579, 33)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Overlay UI/ad overlay 1/VideoAd:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(517, -176), Vector2(596, -197)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Overlay UI/ad overlay 1/BrowserLimbo:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(452, 55), Vector2(532, 21)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f8jit"]
 _data = {
@@ -392,7 +480,7 @@ _data = {
 script = ExtResource("1_ednmm")
 player_char = NodePath("Admin")
 enemy_char = NodePath("SpamBot")
-next_turn_delay = null
+next_level = ExtResource("2_jlonc")
 
 [node name="Overlay UI" type="Node2D" parent="."]
 

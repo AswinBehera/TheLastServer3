@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/StoryManager.gd" id="4_02ojk"]
 [ext_resource type="PackedScene" uid="uid://dwmmxdv7buswb" path="res://Levels/03_GameServer/GameServer.tscn" id="5_41shk"]
 [ext_resource type="AudioStream" uid="uid://dftdxo6d87mrs" path="res://Resources/audio/hit_sound.wav" id="6_p6snq"]
-[ext_resource type="AudioStream" path="res://Resources/audio/crowd-laughing.mp3" id="7_w564t"]
+[ext_resource type="AudioStream" uid="uid://b41aoxtxrjk5n" path="res://Resources/audio/crowd-laughing.mp3" id="7_w564t"]
 
 [sub_resource type="Animation" id="Animation_r71pb"]
 resource_name = "GreetingAnimation"

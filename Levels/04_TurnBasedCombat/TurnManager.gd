@@ -15,8 +15,9 @@ signal character_begin_turn(character)
 signal character_end_turn(character)
 
 func _ready():
-	
+	GlobalMusic.stop()
 	await get_tree().create_timer(0.5).timeout
+	Dialogic.start("banter1")
 	begin_next_turn()
 	CombatEvents.combat_action.connect(execute_commentary)
 
