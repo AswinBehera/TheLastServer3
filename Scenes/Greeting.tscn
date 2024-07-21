@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://c18ny0d08soku"]
 
 [ext_resource type="Script" path="res://Scenes/GreetingCard.gd" id="1_tur1n"]
-[ext_resource type="Texture2D" path="res://Resources/Admin.png" id="2_0mupy"]
+[ext_resource type="Texture2D" uid="uid://l1v1ko5fno58" path="res://Resources/Admin.png" id="2_0mupy"]
 [ext_resource type="Theme" uid="uid://bcd4akm6gjqii" path="res://Themes/generalButton.tres" id="3_dp67y"]
 [ext_resource type="FontFile" uid="uid://bv31galpytwnq" path="res://Fonts/Poppins/Poppins-Regular.ttf" id="3_vxfs1"]
-[ext_resource type="Theme" path="res://Themes/green_button.tres" id="4_ccls6"]
+[ext_resource type="Theme" uid="uid://c3wkfitfgjr84" path="res://Themes/green_button.tres" id="4_ccls6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rh2uq"]
 content_margin_left = 0.0
