@@ -19,7 +19,8 @@ class_name Character
 @export var flip_visual : bool
 
 var message: String
-var banters: Array = ["banter2", "banter3", "banter4"]
+var healbanters: Array = ["banter2", "banter3", "banter4"]
+var attackbanters: Array = ["banter5", "banter6", "banter7"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -82,7 +83,7 @@ func _decide_combat_action ():
 		if action.heal > 0:
 			if randf() > health_percent + 0.2:
 				cast_combat_action(action)
-				var banter = banters.pick_random()
+				var banter = healbanters.pick_random()
 				Dialogic.start(banter)
 					
 				
@@ -91,7 +92,9 @@ func _decide_combat_action ():
 				continue
 		else:
 			cast_combat_action(action)
-			Dialogic.start("banter5")
+			if randf() > 0.64:
+				var banter = attackbanters.pick_random()
+				Dialogic.start(banter)
 			return
 	
 func play_hit_with_variation():

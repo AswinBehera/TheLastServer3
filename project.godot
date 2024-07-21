@@ -33,7 +33,9 @@ directories/dtl_directory={
 "banter2": "res://timelines/banter2.dtl",
 "banter3": "res://timelines/banter3.dtl",
 "banter4": "res://timelines/banter4.dtl",
-"banter5": "res://timelines/banter5.dtl"
+"banter5": "res://timelines/banter5.dtl",
+"banter6": "res://timelines/banter6.dtl",
+"banter7": "res://timelines/banter7.dtl"
 }
 layout/style_list=["res://timelines/dialog_flow.tres"]
 layout/default_style="res://timelines/dialog_flow.tres"
